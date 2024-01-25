@@ -11,7 +11,7 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 //the geolocation API to load the map
-let map, mapEvent;
+// let map, mapEvent;
 class App {
     #map;
     #mapEvent;
@@ -75,7 +75,23 @@ inputDistance.value = inputDuration.value = inputElevation.value = inputCadence.
 const app= new App();
 app._getPosition();
 
-//an eventlistener to submit the form
+class Runninng {
+    constructor(coords,distance,duration/*, cadence*/){
+        this.coords=coords;
+        this.distance=distance;
+        this.duration=duration;
+        // this.cadence=cadence;
+        this.calcPace();
 
+    }
+
+    calcPace(){
+        this.pace= this.duration/this.distance;
+        return this.pace;
+    }
+
+}
+const run1= new Runninng([34,-10],3,180);
+console.log(run1);
 
 
